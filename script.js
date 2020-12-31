@@ -35,7 +35,7 @@ for (let i = 0; i < 6; i++) {
   gettheTable.appendChild(addingrow);
 }
 
-//function that is used to changed the text color of the begining and end of month
+//function that is used to changed the text color of the numbers
 function changingTextColor(i, content, color, themonth, theyear) {
   let contentincalendar = document.getElementById(`cell--${i}`);
   contentincalendar.textContent = content;
@@ -131,12 +131,36 @@ for (let i = 2020; i < 2031; i++) {
 //Selects month and year on Page load using JQuery
 //https://stackoverflow.com/questions/41805041/set-select-value-on-page-load-reload
 //TODO - I don't understand how this code works. Need to research Jquery a little more.
+//Doing research and studying, I understand this alot better.
 $(document).ready(function () {
   $("div.sel_month select")
     .val(currentDate.getMonth() + 1)
     .change();
-});
-
-$(document).ready(function () {
   $("div.sel_year select").val(currentDate.getFullYear()).change();
 });
+
+// Change month using arrow keys. Was able to reuse JQuery and got this working.
+const buttonPress = function (x) {
+  const nextMonth = Number(document.getElementById("month").value) + x;
+  const nextYear = Number(document.getElementById("year").value) + x;
+  if (nextMonth < 1 || nextMonth > 12) {
+    $("div.sel_year select").val(nextYear).change();
+    if (nextMonth > 12) {
+      $("div.sel_month select").val(1).change();
+    } else {
+      $("div.sel_month select").val(12).change();
+    }
+  } else {
+    $("div.sel_month select").val(nextMonth).change();
+  }
+};
+
+const todayPress = function () {
+  $("div.sel_month select")
+    .val(currentDate.getMonth() + 1)
+    .change();
+  $("div.sel_year select").val(currentDate.getFullYear()).change();
+  document.querySelector(".day--selected--title").innerHTML = `${
+    currentDate.getMonth() + 1
+  }/${currentDate.getDate()}/${currentDate.getFullYear()}`;
+};
