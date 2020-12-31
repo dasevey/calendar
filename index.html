@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Calendar</title>
   </head>
@@ -11,6 +22,9 @@
     <section class="theColumns">
       <div class="day--selected">
         <h2 class="day--selected--title">Click on a Day</h2>
+      </div>
+      <div class="day--contents">
+        <p class="day--display">Click on a day to see activities</p>
       </div>
       <div class="calendar">
         <table class="calendar--table">
@@ -25,12 +39,60 @@
                 ></select>
               </div>
             </td>
-            <td class="menu--cell" id="btn--addevent">
-              <button>Add Event</button>
-            </td>
-            <td class="menu--cell" colspan="3" id="calendar--title"></td>
-            <td class="menu--cell" id="btn--bugreport">
-              <button>Report Bug</button>
+            <td class="menu--cell" colspan="5" id="calendar--title">
+              <div class="btn-group" role="group" aria-label="Calendar Menu">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  id="backButton"
+                  onclick="buttonPress(-1)"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-left-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"
+                    />
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-success btn-sm">
+                  Add Event
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success btn-sm"
+                  onclick="todayPress()"
+                >
+                  Today
+                </button>
+                <button type="button" class="btn btn-success btn-sm">
+                  Feedback
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  id="forwardButton"
+                  onclick="buttonPress(1)"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </td>
             <td class="menu--cell" id="cell--year">
               <!-- !this div is needed for a code, don't delete -->
@@ -53,5 +115,10 @@
       </div>
     </section>
     <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
