@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <title>Calendar</title>
+  </head>
+  <body>
+    <section class="theColumns">
+      <div class="day--selected">
+        <h2 class="day--selected--title">Click on a Day</h2>
+      </div>
+      <div class="calendar">
+        <table class="calendar--table">
+          <tr>
+            <td class="menu--cell" id="cell--month">
+              <!-- !this div is needed for a code, don't delete -->
+              <div class="sel_month">
+                <select
+                  name="month"
+                  id="month"
+                  onchange="dateChange()"
+                ></select>
+              </div>
+            </td>
+            <td class="menu--cell" id="btn--addevent">
+              <button>Add Event</button>
+            </td>
+            <td class="menu--cell" colspan="3" id="calendar--title"></td>
+            <td class="menu--cell" id="btn--bugreport">
+              <button>Report Bug</button>
+            </td>
+            <td class="menu--cell" id="cell--year">
+              <!-- !this div is needed for a code, don't delete -->
+              <div class="sel_year">
+                Year:
+                <select name="year" id="year" onchange="dateChange()"></select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th class="headerDay" id="header--sun">Sunday</th>
+            <th class="headerDay" id="header--mon">Monday</th>
+            <th class="headerDay" id="header--tue">Tuesday</th>
+            <th class="headerDay" id="header--wed">Wednesday</th>
+            <th class="headerDay" id="header--thu">Thursday</th>
+            <th class="headerDay" id="header--fri">Friday</th>
+            <th class="headerDay" id="header--sat">Saturday</th>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
