@@ -19,18 +19,15 @@
     <title>Calendar</title>
   </head>
   <body>
-    <section class="theColumns">
-      <div class="day--selected">
-        <h2 class="day--selected--title">Click on a Day</h2>
+    <div class="row g-0 align-items-end">
+      <div class="col-lg-3 align-self-end order-0">
+        <h2 class="day--selected--title" style="margin-bottom: 0">Date</h2>
       </div>
-      <div class="day--contents">
-        <p class="day--display">Click on a day to see activities</p>
-      </div>
-      <div class="calendar">
-        <table class="calendar--table">
+      <div class="col-lg-9 order-1">
+        <table class="calendar--table--top">
           <tr>
             <td class="menu--cell" id="cell--month">
-              <!-- !this div is needed for a code, don't delete -->
+              <!-- *this div is needed for a code, don't delete -->
               <div class="sel_month">
                 <select
                   name="month"
@@ -95,13 +92,24 @@
               </div>
             </td>
             <td class="menu--cell" id="cell--year">
-              <!-- !this div is needed for a code, don't delete -->
+              <!-- *this div is needed for a code, don't delete -->
               <div class="sel_year">
                 Year:
                 <select name="year" id="year" onchange="dateChange()"></select>
               </div>
             </td>
           </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row g-0">
+      <div class="col-lg-3 col-md-2 order-3 order-sm-3">
+        <div class="scrolling">
+          <p>Click a day to select it.</p>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-10 order-2 order-sm-2 order-lg-3 order-md-3">
+        <table class="calendar--table">
           <tr>
             <th class="headerDay" id="header--sun">Sunday</th>
             <th class="headerDay" id="header--mon">Monday</th>
@@ -113,7 +121,7 @@
           </tr>
         </table>
       </div>
-    </section>
+    </div>
     <script src="script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
